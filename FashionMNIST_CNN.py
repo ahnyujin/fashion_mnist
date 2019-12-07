@@ -8,7 +8,7 @@
 # 1. 데이터 불러오기
 
 from keras.datasets import fashion_mnist
-
+from pyimagesearch.minivggnet import MiniVGGNet
 (X_train, y_train), (X_test, y_test) = fashion_mnist.load_data()
 
 print(X_train.shape)
@@ -48,7 +48,7 @@ print(y_test.shape)
 # In[4]:
 
 
-# 3-2. 이미지 데이터 전처리 : Normalzation 
+# 3-2. 이미지 데이터 전처리 : Normalzation
 
 X_train = X_train/255
 X_test = X_test/255
@@ -57,7 +57,7 @@ X_test = X_test/255
 # In[5]:
 
 
-# 4. Label categorical (one-hot encoding) 
+# 4. Label categorical (one-hot encoding)
 
 from keras.utils import to_categorical
 
@@ -71,17 +71,17 @@ y_test = to_categorical(y_test)
 # 5. 모델 생성 : CNN
 
 from keras.models import Sequential
-from keras.layers import Conv2D, MaxPooling2D, Flatten, Dense
+from keras.layers import Dropout,Conv2D, MaxPooling2D, Flatten, Dense
 
 model = Sequential()
-model.add(Conv2D(filters=32, kernel_size=(3,3), 
+model.add(Conv2D(filters=32, kernel_size=(3,3),
                  input_shape=(28,28,1),
                  padding='same',
                  activation='relu'))
 model.add(MaxPooling2D(pool_size=(2,2)))
 model.add(Flatten())
-model.add(Dense(128,activation='relu'))
-model.add(Dense(10,activation='softmax'))
+model.add(Dense(128, activation='relu'))
+model.add(Dense(10, activation='softmax'))
 
 print(model.summary())
 
@@ -91,8 +91,12 @@ print(model.summary())
 
 # 6. Compile - Optimizer, Loss function 설정
 
-model.compile(loss='categorical_crossentropy', 
-              optimizer='adam', 
+from keras.optimizers import SGD
+
+opt = SGD(lr=1e-2, momentum=0.9, decay=1e-2 / 25)
+model = MiniVGGNet.build(width=28, height=28, depth=1, classes=10)
+model.compile(loss='categorical_crossentropy',
+              optimizer=opt,
               metrics=['accuracy'])
 
 
@@ -103,8 +107,8 @@ model.compile(loss='categorical_crossentropy',
 
 from sklearn.model_selection import train_test_split
 
-X_train, X_val, y_train, y_val = train_test_split(X_train, y_train, 
-                                                  test_size=0.2, 
+X_train, X_val, y_train, y_val = train_test_split(X_train, y_train,
+                                                  test_size=0.2,
                                                   random_state=9)
 
 print(X_train.shape)
@@ -121,12 +125,12 @@ print(y_val.shape)
 batch_size = 128
 epochs = 30
 
-history = model.fit(X_train, y_train, 
-          batch_size=batch_size, 
-          epochs=epochs, 
-          validation_data=(X_val, y_val), 
-          shuffle=True, 
-          verbose=1)
+history = model.fit(X_train, y_train,
+                    batch_size=batch_size,
+                    epochs=epochs,
+                    validation_data=(X_val, y_val),
+                    shuffle=True,
+                    verbose=1)
 
 
 # In[22]:
@@ -142,6 +146,20 @@ print(test_loss, test_acc)
 # In[23]:
 
 
+# 9. 이미지를 랜덤으로 선택해 훈련된 모델로 예측 🖼
+
+import numpy
+for index in numpy.random.choice(len(y_test), 3, replace = False):
+    predicted = model.predict(X_test[index:index + 1])[0]
+    label = y_test[index]
+    result_label = numpy.where(label == numpy.amax(label))
+    result_predicted = numpy.where(predicted == numpy.amax(predicted))
+    title = "Label value = %s  Predicted value = %s " % (result_label[0], result_predicted[0])
+    
+    fig = plt.figure(1, figsize = (3,3))
+    ax1 = fig.add_axes((0,0,.8,.8))
+    ax1.set_title(title)
+    images = X_test
 # 9. 이미지를 랜덤으로 선택해 훈련된 모델로 예측 🖼
 
 import numpy
@@ -174,18 +192,4 @@ plt.ylabel('epoch')
 plt.xlabel('accuracy')
 plt.legend(['train','test'],loc='upper left')
 plt.show()
-
-plt.plot(history.history['loss'])
-plt.plot(history.history['val_loss'])
-plt.title('Loss')
-plt.ylabel('epoch')
-plt.xlabel('loss')
-plt.legend(['train','test'],loc='upper left')
-plt.show()
-
-
-# In[ ]:
-
-
-
 
