@@ -78,12 +78,14 @@ model.add(Conv2D(filters=32, kernel_size=(5,5),
                  input_shape=(28,28,1),
                  padding='same',
                  activation='relu'))
+model.add(BatchNormalization())
 model.add(MaxPooling2D(pool_size=(2,2)))
 
 model.add(Conv2D(filters=32, kernel_size=(5,5),
                  input_shape=(28,28,1),
                  padding='same',
                  activation='relu'))
+model.add(BatchNormalization())
 model.add(MaxPooling2D(pool_size=(2,2)))
 
 model.add(Flatten())
@@ -125,7 +127,7 @@ print(y_val.shape)
 
 # 7. 모델 학습시키기
 
-batch_size = 128
+batch_size = 64
 epochs = 15
 
 history = model.fit(X_train, y_train, 
