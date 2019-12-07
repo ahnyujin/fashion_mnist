@@ -71,7 +71,7 @@ y_test = to_categorical(y_test)
 # 5. 모델 생성 : CNN
 
 from keras.models import Sequential
-from keras.layers import Conv2D, MaxPooling2D, Flatten, Dense
+from keras.layers import Conv2D, MaxPooling2D, Flatten, Dense, BatchNormalization, Dropout
 
 model = Sequential()
 model.add(Conv2D(filters=32, kernel_size=(5,5),
