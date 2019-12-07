@@ -8,8 +8,6 @@ python3 FashionMNIST_CNN.py
 
 ## 개발 내용
 
-## 업데이트 내역
-
 * task0
     * Adam Optimizer사용 (91.73%)
     
@@ -60,6 +58,7 @@ python3 FashionMNIST_CNN.py
     
 
 ## 개발자
+
 강신혁
 
 김애은 - https://github.com/aeeunkim
