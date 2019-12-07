@@ -119,7 +119,7 @@ print(y_val.shape)
 # 7. 모델 학습시키기
 
 batch_size = 128
-epochs = 30
+epochs = 10
 
 history = model.fit(X_train, y_train, 
           batch_size=batch_size, 
