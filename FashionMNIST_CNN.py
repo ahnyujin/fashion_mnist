@@ -81,13 +81,6 @@ model.add(Conv2D(filters=32, kernel_size=(5,5),
 model.add(BatchNormalization())
 model.add(MaxPooling2D(pool_size=(2,2)))
 
-model.add(Conv2D(filters=32, kernel_size=(5,5),
-                 input_shape=(28,28,1),
-                 padding='same',
-                 activation='relu'))
-model.add(BatchNormalization())
-model.add(MaxPooling2D(pool_size=(2,2)))
-
 model.add(Flatten())
 model.add(Dense(256,activation='relu'))
 model.add(Dropout(0.25)
