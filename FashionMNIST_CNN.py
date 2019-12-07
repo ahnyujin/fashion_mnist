@@ -95,8 +95,9 @@ print(model.summary())
 # 6. Compile - Optimizer, Loss function 설정
 
 model.compile(loss='categorical_crossentropy',
-        optimizer='Adagrad',
+        optimizer='Adadelta',
         metrics=['accuracy'])
+
 
 
 # In[13]:
