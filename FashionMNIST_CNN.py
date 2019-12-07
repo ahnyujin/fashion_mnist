@@ -74,13 +74,20 @@ from keras.models import Sequential
 from keras.layers import Conv2D, MaxPooling2D, Flatten, Dense
 
 model = Sequential()
-model.add(Conv2D(filters=32, kernel_size=(3,3), 
+model.add(Conv2D(filters=32, kernel_size=(3,3),
                  input_shape=(28,28,1),
                  padding='same',
                  activation='relu'))
 model.add(MaxPooling2D(pool_size=(2,2)))
+
+model.add(Conv2D(filters=32, kernel_size=(3,3),
+                 input_shape=(28,28,1),
+                 padding='same',
+                 activation='relu'))
+model.add(MaxPooling2D(pool_size=(2,2)))
+
 model.add(Flatten())
-model.add(Dense(128,activation='relu'))
+model.add(Dense(256,activation='relu'))
 model.add(Dense(10,activation='softmax'))
 
 print(model.summary())
@@ -119,7 +126,7 @@ print(y_val.shape)
 # 7. 모델 학습시키기
 
 batch_size = 128
-epochs = 10
+epochs = 30
 
 history = model.fit(X_train, y_train, 
           batch_size=batch_size, 
