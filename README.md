@@ -59,7 +59,12 @@ python3 FashionMNIST_CNN.py
 ## 결과
 
    task2의 vggnet optimizer로 최대 93.42%의 accuracy를 얻을 수 있었음
+   
+## Reference
 
+   https://www.pyimagesearch.com/2019/02/11/fashion-mnist-with-keras-and-deep-learning/
+   https://github.com/zalandoresearch/fashion-mnist
+   
 ## 개발자
 
 강신혁
