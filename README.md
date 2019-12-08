@@ -1,21 +1,15 @@
 # Fashion_MNIST
-> CNN을 이용한 Keras fashion_mnist 모델 생성 및 학습
+> CNN을 이용한 fashion_mnist 최적의 모델 생성 및 학습
 
 ## 실행 방법
 ```
 python3 FashionMNIST_CNN.py
 ```
 
-## 개발 내용
+## 개발 내용 (시도시점순으로 나열)
 
 * task0
     * Adam Optimizer사용 (91.73%)
-    
-* task1
-    * task0에서 relu dense를 256으로 올림, dropout(0.5)적용 (92.07%)
-    
-* task2           
-    * task0에서 optimizer를 vggnet로 변형 (93.42%)
     
 * task3
     * task0에서 epoch를 10으로 변환 (90.64%)
@@ -55,6 +49,12 @@ python3 FashionMNIST_CNN.py
     
 * task15
     * 제일 근접했던 sgd에서 learning rate와 momentum그리고 nesterov를 적용시킴 (90.73%)
+    
+* task1
+    * task0에서 relu dense를 256으로 올림, dropout(0.5)적용 (92.07%)
+    
+* task2           
+    * task0에서 optimizer를 vggnet로 변형 (93.42%)
     
 ## 결과
 
