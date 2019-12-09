@@ -54,7 +54,7 @@ python3 FashionMNIST_CNN.py
     * task0에서 relu dense를 256으로 올림, dropout(0.5)적용 (92.07%)
     
 * task2           
-    * task0에서 optimizer를 vggnet로 변형 (93.42%)
+    * task0에서 모델을 vggnet로 변형 (93.42%)
     
 ## 결과
 
