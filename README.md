@@ -10,56 +10,56 @@ python3 FashionMNIST_CNN.py
 
 ## 개발 내용 (시도시점순으로 나열)
 
-* task0//
+* task0//                                           
 최초의 기존 CNN conv + max pool 한층 그리고 fc층 두개로 첫 fc는 128 relu를 사용, 두번째 fc는 10으로 softmax를 사용 
 optimizer로는 Adam Optimizer사용 (91.73%)
     
-* task3//
+* task3//                                           
 task0에서 시도횟수가 많아져 overfitting 되는것 같아 epoch를 10으로 변환 (90.64%)
     
-* task4//
+* task4//                                           
 conv층이 한층 더 늘어나면 어떻게 될까 싶어서 task0에서 conv와 maxpool을 똑같은 구조로 한층 더쌓음 (91.13%)
     
-* task5//
+* task5//                                           
 그리고 conv층이 두층인 상태, task4에서 epoch를 10으로 줄임 (91.21%)
     
-* task6//
+* task6//                                           
 변함이 없길래, conv 한층의 커널사이즈를, task4에서 5*5로 조정 (91.66%)
     
-* task7//
+* task7//                                           
 이번에는 conv 두층의 커널사이즈를 task5에서 5*5로 조정\, epoch 15로 변경 (91.32%)
     
 여기서부터 epoch를 15로 고정
 
-* task8//
+* task8//                                           
 batch normalization을 적용시키면 어떨까 싶어,
 task7에서 각 conv층 사이에 BN층 하나씩 삽입. 편차가 너무 커 batch-size를 128에서 64로 수정 (90.19%)
 
-* task9//
+* task9//                                           
 그리고 dropout도 적용해보고 싶어, fc층 사이에 Dropout(0.25) 삽입 (91.1%)
     
-* task10//
+* task10//                                           
 여전히 변함이 없길래 지금까지 적용한것들을 그대로, task9에서 conv층 하나로 줄임 (90.58%)
     
-* task11//
+* task11//                                           
 이번에는 optimizer가 문제인가 싶어, task optimizer를 sgd로 바꿔봄 (91.29%)
     
-* task12//
+* task12//                                           
 sgd가 다시 loss function이 괜찮길래 conv층을, task11에서 다시 두층으로 (91.2%)
     
-* task13//
+* task13//                                           
 영향이 없길래, 다시 한층으로 줄이고 optimizer를 Adagrad로 바꿈 (91.93%)
     
-* task14//
+* task14//                                           
 Adadelta optimizer도 써봄 (91.06%)
     
-* task15//
+* task15//                                           
 제일 근접했던 sgd에서 learning rate와 momentum그리고 nesterov를 적용시킴 (90.73%)
     
-* task1//
+* task1//                                           
 task0에서 relu dense를 256으로 올림, dropout(0.5)적용 (92.07%)
     
-* task2//        
+* task2//                                                   
 task0에서 모델을 vggnet로 변형 (93.42%)
     
 ## 결과
