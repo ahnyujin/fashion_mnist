@@ -67,7 +67,7 @@ python3 FashionMNIST_CNN.py
    
 ## 개발자
 
-강신혁
+강신혁 - https://github.com/dtc02040
 
 김애은 - https://github.com/aeeunkim
 
