@@ -1,5 +1,5 @@
 # Fashion_MNIST
-> CNN을 이용한 fashion_mnist 최적의 모델 생성 및 학습
+> 목표 : CNN을 이용한 fashion_mnist 최적의 모델 생성 및 학습
 
 ## 실행 방법
 ```
