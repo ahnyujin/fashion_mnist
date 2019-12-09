@@ -74,8 +74,9 @@ task0에서 모델을 vggnet로 변형 (93.42%)
    
 ## Reference
 
-   https://www.pyimagesearch.com/2019/02/11/fashion-mnist-with-keras-and-deep-learning/
    https://github.com/zalandoresearch/fashion-mnist
+   https://www.pyimagesearch.com/2019/02/11/fashion-mnist-with-keras-and-deep-learning/
+   https://github.com/ashmeet13/FashionMNIST-CNN/blob/master/Fashion.py
    
 ## 개발자
 
