@@ -1,5 +1,5 @@
 # Fashion_MNIST
-> 목표 : CNN을 이용한 fashion_mnist 최적의 모델 생성 및 학습
+> 목표 : CNN을 이용한 fashion_mnist 최적의 모델 생성 및 학습//  
 기존의 MNIST를 대체할만한 fashion_mnist를 고안해둔 프로젝트 < https://github.com/zalandoresearch/fashion-mnist
 에서 fashion MNIST의 데이터셋을 사용해 간단한 CNN모델로 어떤 적용을 하면 어떻게 변하는지 다양한 시도로 인한 loss 및 accuracy 측정
 
