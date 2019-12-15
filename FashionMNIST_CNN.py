@@ -160,20 +160,6 @@ for index in numpy.random.choice(len(y_test), 3, replace = False):
     ax1 = fig.add_axes((0,0,.8,.8))
     ax1.set_title(title)
     images = X_test
-# 9. 이미지를 랜덤으로 선택해 훈련된 모델로 예측 🖼
-
-import numpy
-for index in numpy.random.choice(len(y_test), 3, replace = False):
-    predicted = model.predict(X_test[index:index + 1])[0]
-    label = y_test[index]
-    result_label = numpy.where(label == numpy.amax(label))
-    result_predicted = numpy.where(predicted == numpy.amax(predicted))
-    title = "Label value = %s  Predicted value = %s " % (result_label[0], result_predicted[0])
-    
-    fig = plt.figure(1, figsize = (3,3))
-    ax1 = fig.add_axes((0,0,.8,.8))
-    ax1.set_title(title)
-    images = X_test
     plt.imshow(images[index].reshape(28, 28), cmap = 'Greys', interpolation = 'nearest')
     plt.show()
 
